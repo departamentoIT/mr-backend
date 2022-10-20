@@ -14,8 +14,12 @@ const catalogueSchema = new mongoose.Schema({
     },
     rating:{
         type: String,
+        default: "4"
     },
     type:{
+        type: String
+    },
+    idCompany:{
         type: String
     },
     created: { 

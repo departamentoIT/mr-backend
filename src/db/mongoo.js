@@ -8,8 +8,7 @@ export const dbConnect = () => {
        PORT:***** 
     }
     */
-
-    const DB_URI = `mongodb+srv://prime:YiXfo3wMLwQfc8Vw@cluster0.tpagh3c.mongodb.net/misionriqueza?retryWrites=true&w=majority`;
+    const DB_URI = `mongodb+srv://misionriqueza:lsRbHUXKdyUl6jGU@cluster0.v42fhxv.mongodb.net/misionriqueza?retryWrites=true&w=majority`;
     //const DB_URI = process.env.DB_URI;
     
     // variable para definir la condicion de entrada a la base de datos

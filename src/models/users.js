@@ -15,6 +15,12 @@ const usersSchema = new mongoose.Schema({
         type    : String,
         default : "undefine",
     },
+    number:{
+        type: Number,
+    },
+    services:{
+        type: String,
+    },
     created: { 
         type: Date, 
         default: Date.now,

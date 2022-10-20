@@ -2,7 +2,7 @@
 import {catalogueModel} from '../models/catalogue.js'
 
 export async function cCatalogue(req, res) {
-    const {name, price, desc, details, rating, type} = req.body
+    const {name, price, desc, details, rating, type, idCompany} = req.body
     try {
         
         await catalogueModel.create({
@@ -11,13 +11,15 @@ export async function cCatalogue(req, res) {
             desc,
             details,
             rating,
-            type
+            type,
+            idCompany
         });
         res.sendStatus(204);
     } catch (error) {
         return res.status(500).json({message: error.message})
     }
 }
+
 
 export async function rCatalogue(req, res) {
     try {
@@ -30,7 +32,7 @@ export async function rCatalogue(req, res) {
 }
 export async function rCatalogueP(req, res) {
     try {
-        const catalogue = await catalogueModel.find({type:"Product"})
+        const catalogue = await catalogueModel.find({type:"Producto"})
         res.json(catalogue);
     } catch (error) {
         return res.status(500).json({message: error.message})
@@ -45,4 +47,26 @@ export async function rCatalogueS(req, res) {
         return res.status(500).json({message: error.message})
     }
     
+}
+
+export async function dCatalogues(req, res){
+    try {
+        const {_id} = req.params;
+        const catalogue = await catalogueModel.findOneAndDelete({
+            _id
+        });
+        res.json(catalogue);
+    } catch (error) {
+        return res.status(500).json({message: error.message})
+    }
+}
+
+export async function uCatalogues(id, body, res){
+    catalogueModel.findByIdAndUpdate(
+        id,
+        {$set:{
+            body
+        }}, 
+        (error, data) => res.send(data)
+    )
 }
