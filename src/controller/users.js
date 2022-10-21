@@ -56,6 +56,19 @@ export async function oneUsers(req, res){
         return res.status(500).json({message: error.message})
     }
 }
+//userCompany
+export async function oneUsersE(req, res){
+    try {
+        const {_id} = req.params;
+        const user = await userModel.findOne({
+            _id,
+            rol: 1
+        });
+        res.json(user);
+    } catch (error) {
+        return res.status(500).json({message: error.message})
+    }
+}
 //get cata
 export async function rUserCatalogue(req, res) {
     try {
