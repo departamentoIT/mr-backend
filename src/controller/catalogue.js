@@ -2,7 +2,7 @@
 import {catalogueModel} from '../models/catalogue.js'
 
 export async function cCatalogue(req, res) {
-    const {name, price, desc, details, rating, type, idCompany} = req.body
+    const {name, price, desc, details, rating, type, idCompany, numberCompany} = req.body
     try {
         
         await catalogueModel.create({
@@ -12,7 +12,8 @@ export async function cCatalogue(req, res) {
             details,
             rating,
             type,
-            idCompany
+            idCompany,
+            numberCompany
         });
         res.sendStatus(204);
     } catch (error) {

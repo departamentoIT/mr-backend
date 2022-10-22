@@ -22,6 +22,9 @@ const catalogueSchema = new mongoose.Schema({
     idCompany:{
         type: String
     },
+    numberCompany:{
+        type: Number
+    },
     created: { 
         type: Date, 
         default: Date.now,
